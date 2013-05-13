@@ -1,0 +1,21 @@
+Design Principle
+Identify the aspects of your application that vary and separate them from what stays the same.
+
+Design Principle
+Program to an interface, not an implementation.
+
+Design Principle
+Favor composition over inheritance.
+
+Design Principle
+Strive for loosely coupled designs between objects that interact.
+
+-- The HAS-A relationship is an interesting one: each duck has a FlyBehavior and a QuackBehavior to which it delegates flying and quacking.
+
+* The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+
+* The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. There are many observers and they rely on the Subject to tell them when its state changes.
+
+Observable API Issues
+
+Observable may serve your needs if you can extend java.util.Observable. On the other hand, you may need to roll your own implementation as we did at the beginning of the chapter. In either case, you know the Observer Pattern well and you’re in a good position to work with any API that makes use of the pattern.

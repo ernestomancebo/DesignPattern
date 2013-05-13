@@ -1,0 +1,122 @@
+/*
+***********
+* Unit 1: *
+***********
+*/
+
+Sharpen your pencil
+
+Which of the following are disadvantages of using inheritance to provide Duck behavior? (Choose all that apply.)
+
+*   A. Code is duplicated across subclasses.
+*   B. Runtime behavior changes are difficult.
+    C. We can’t make ducks dance.
+*   D. Hard to gain knowledge of all duck behaviors.
+    E. Ducks can’t fly and quack at the same time.
+*   F. Changes can unintentionally affect other ducks.
+
+Design Puzzle
+
+Abstract Class Character: 
+    WeaponBehavior wb
+
+    fight()
+    setWeapon()
+
+King, queen, troll, knight extends Character;
+
+Interface WeaponBehavior:
+    useWeapon()
+
+KnifeBehavior, BowAndArroyBehavior, AxeBehavior, SwordBehavior implements WeaponBehavior;
+
+/*
+***********
+* Unit 2: *
+***********
+*/
+
+
+Sharpen your pencil
+
+Based on our first implementation, which of the following apply? (Choose all that apply.)
+
+*   A. We are coding to concrete implementations, not interfaces.
+*   B. For every new display element we need to alter code.
+*   C. We have no way to add (or remove) display elements at run time.
+    D. The display elements don’t implement a common interface.
+*   E. We haven’t encapsulated the part that changes.
+    F. We are violating encapsulation of the WeatherData class.
+
+Sharpen your pencil
+
+Before moving on, try sketching out the classes you’ll need to implement the Weather Station, including the WeatherData class and its display elements. Make sure your diagram shows how all the pieces fit together and also how another developer might implement her own display element. 
+
+If you need a little help, read the next page; your teammates are already talking about how to design the Weather Station.
+
+Interface Subject{}
+WeatherData implements Subject{subjectBehab(); weatherAttributesGetters/Setters(); weatherChanged();}
+
+Interface Subscriber
+Interface Display
+DisplayWeatherSubs implements Subscriber, Display{subscribersBehab(); weatherAttributesUpdater(); weatherAttributesDisplay();}
+
+Brain Power
+
+Mary and Sue thought that passing the measurements directly to the observers was the most straightforward method of updating state. Do you think this is wise? 
+No, in case of new meassures we need to update the method and every implementation.
+
+Hint: is this an area of the application that might change in the future? If it did change, would the change be well encapsulated, or would it require changes in many parts of the code?
+Yes, the update method. It'd require changes on every implementation.
+
+Can you think of other ways to approach the problem of passing the updated state to the observers?
+Not right now.
+
+Code Magnets
+
+/**
+The ForecastDisplay class is all scrambled up on the fridge. Can you reconstruct the code snippets to make it work? Some of the curly braces fell on the floor and they were too small to pick up, so feel free to add as many of those as you need!
+**/
+
+import java.util.Observable;
+import java.util.Observer;
+
+public class ForecastDisplay implements Observer, DisplayElement {
+
+    private float currentPressure = 29.92f;
+    private float lastPressure;
+
+    public ForecastDisplay(Observable observable) {
+        observable.addObserver(this);
+    }
+
+    public void update(Observable observable, Object arg) {
+        if (observable instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) observable;
+            lastPressure    = currentPressure;
+            currentPressure = weatherData.getPressure();
+            display();
+        }
+    }
+    public void display() {
+        // display code here
+    }
+
+}
+
+Design Principle Challenge
+
+For each design principle, describe how the Observer Pattern makes use of the principle.
+
+Design Principle: Identify the aspects of your application that vary and separate them from what stays the same.
+    This is present when implements the observable and observer abs-class and interface, respectively.
+
+    The thing that varies in the Observer Pattern is the state of the Subject and the number and types of Observers. With this pattern, you can vary the objects that are dependent on the state of the Subject, without having to change that Subject. That’s called planning ahead!
+
+Design Principle: Program to an interface, not an implementation.
+    Both the Subject and Observer use interfaces. The Subject keeps track of objects implementing the Observer interface, while the observers register with, and get notified by, the Subject interface. As we’ve, this keeps things nice and loosely coupled.
+
+Design Principle: Favor composition over inheritance.
+    This is when obligate to who implements, practice the same behavior.
+
+    The Observer Pattern uses composition to compose any number of Observers with their Subjects. These relationships aren’t set up by some kind of inheritance hierarchy. No, they are set up at runtime by composition!
