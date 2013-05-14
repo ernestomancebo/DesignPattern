@@ -6,6 +6,7 @@ public class Soy extends CondimentDectorator {
 	
 	public Soy(Beverage beverage) {
 		this.beverage = beverage;
+		setSize(beverage.getSize());
 	}
 	
 	@Override
@@ -15,7 +16,13 @@ public class Soy extends CondimentDectorator {
 
 	@Override
 	public double cost() {
-		return 0.15 + beverage.cost();
+		if(beverage.getSize().equalsIgnoreCase("tall")) {
+			return 0.10 + beverage.cost();
+		} else if(beverage.getSize().equalsIgnoreCase("venti")) {			
+			return 0.20 + beverage.cost();
+		} else {
+			return 0.15 + beverage.cost();
+		}
 	}
 
 }

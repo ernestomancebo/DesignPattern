@@ -2,8 +2,9 @@ package ernesto.design.patterns.decorator;
 
 public class Decaf extends Beverage {
 
-	public Decaf() {
+	public Decaf(String size) {
 		description = "Decaf coffee";
+		setSize(size);
 	}
 	
 	@Override

@@ -2,8 +2,9 @@ package ernesto.design.patterns.decorator;
 
 public class HouseBlend extends Beverage {
 
-	public HouseBlend() {
+	public HouseBlend(String size) {
 		description = "House Blend Coffee";
+		setSize(size);
 	}
 	
 	@Override

@@ -157,25 +157,8 @@ public class DarkRoast extends Beverage {
     }
 
     public double cost() {
-        double cost = 0;
-
-        if(hasMilk()) {
-            cost = cost + getMilkPrice();
-        }
-
-        if(hasSoy()) {
-            cost = cost + getSoyPrice();
-        }
-
-        if(hasMocha()) {
-            cost = cost + getMochaPrice();
-        }
-
-        if(hasWhip()) {
-            cost = cost + getWhipPrice();
-        }
-
-        return cost;        
+        double = cost + getMilkPrice();
+        return cost;
     }
 }
 

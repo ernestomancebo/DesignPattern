@@ -2,8 +2,9 @@ package ernesto.design.patterns.decorator;
 
 public class DarkRoast extends Beverage {
 
-	public DarkRoast() {
+	public DarkRoast(String size) {
 		description = "Dark Roast Coffee";
+		setSize(size);
 	}
 	
 	@Override

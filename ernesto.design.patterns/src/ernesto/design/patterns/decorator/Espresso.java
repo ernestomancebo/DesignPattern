@@ -2,8 +2,9 @@ package ernesto.design.patterns.decorator;
 
 public class Espresso extends Beverage {
 
-	public Espresso() {
+	public Espresso(String size) {
 		description = "Espresso";
+		setSize(size);
 	}
 	
 	@Override

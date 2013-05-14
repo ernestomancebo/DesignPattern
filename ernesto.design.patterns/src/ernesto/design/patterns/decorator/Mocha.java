@@ -6,6 +6,7 @@ public class Mocha extends CondimentDectorator {
 	
 	public Mocha(Beverage beverage) {
 		this.beverage = beverage;
+		setSize(beverage.getSize());
 	}
 	
 	@Override
@@ -15,7 +16,13 @@ public class Mocha extends CondimentDectorator {
 
 	@Override
 	public double cost() {
-		return 0.20 + beverage.cost();
+		if(beverage.getSize().equalsIgnoreCase("tall")) {
+			return 0.15 + beverage.cost();
+		} else if(beverage.getSize().equalsIgnoreCase("venti")) {		
+			return 0.25 + beverage.cost();
+		} else{
+			return 0.20 + beverage.cost();
+		}
 	}
 
 }

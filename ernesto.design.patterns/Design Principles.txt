@@ -19,7 +19,7 @@ Classes should be open for extension, but closed for modification.
 
 * The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. There are many observers and they rely on the Subject to tell them when its state changes.
 
-* The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+* The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. You can wrap a component with any number of decorators.
 
 Observable API Issues
 

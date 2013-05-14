@@ -6,6 +6,7 @@ public class SteamedMilk extends CondimentDectorator {
 	
 	public SteamedMilk(Beverage beverage) {
 		this.beverage = beverage;
+		setSize(beverage.getSize());
 	}
 	
 	@Override
@@ -15,7 +16,13 @@ public class SteamedMilk extends CondimentDectorator {
 
 	@Override
 	public double cost() {
-		return 0.10 + beverage.cost();
+		if(beverage.getSize().equalsIgnoreCase("tall")) {
+			return 0.05 + beverage.cost();
+		} else if(beverage.getSize().equalsIgnoreCase("venti")) {		
+			return 0.15 + beverage.cost();
+		} else {
+			return 0.10 + beverage.cost();
+		}
 	}
 
 }
