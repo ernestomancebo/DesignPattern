@@ -9,8 +9,7 @@ public class WatherStation {
 		HeatIndex hi = new HeatIndex(wd);
 		StatisticDisplay sd = new StatisticDisplay(wd);
 		ForecastDisplay  fd = new ForecastDisplay(wd);
-		
-		
+				
 		wd.setMeasurements(80, 65, 30.4f);
 		System.out.println("-------");
 		wd.setMeasurements(82, 70, 29.4f);

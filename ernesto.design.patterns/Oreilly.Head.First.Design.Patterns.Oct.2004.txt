@@ -36,7 +36,6 @@ KnifeBehavior, BowAndArroyBehavior, AxeBehavior, SwordBehavior implements Weapon
 ***********
 */
 
-
 Sharpen your pencil
 
 Based on our first implementation, which of the following apply? (Choose all that apply.)
@@ -120,3 +119,107 @@ Design Principle: Favor composition over inheritance.
     This is when obligate to who implements, practice the same behavior.
 
     The Observer Pattern uses composition to compose any number of Observers with their Subjects. These relationships aren’t set up by some kind of inheritance hierarchy. No, they are set up at runtime by composition!
+
+/*
+***********
+* Unit 3: *
+***********
+*/
+
+====== SHARPEN YOUR PENCIL ======
+public class Beverage extends BeveragePrices {
+    public double cost() {
+        double cost = 0;
+
+        if(hasMilk()) {
+            cost = cost + getMilkPrice();
+        }
+
+        if(hasSoy()) {
+            cost = cost + getSoyPrice();
+        }
+
+        if(hasMocha()) {
+            cost = cost + getMochaPrice();
+        }
+
+        if(hasWhip()) {
+            cost = cost + getWhipPrice();
+        }
+
+        return cost;
+    }
+}
+
+public class DarkRoast extends Beverage {
+    public DarkRoast() {
+       description = "Most Excellent Dark Roast";
+    }
+
+    public double cost() {
+        double cost = 0;
+
+        if(hasMilk()) {
+            cost = cost + getMilkPrice();
+        }
+
+        if(hasSoy()) {
+            cost = cost + getSoyPrice();
+        }
+
+        if(hasMocha()) {
+            cost = cost + getMochaPrice();
+        }
+
+        if(hasWhip()) {
+            cost = cost + getWhipPrice();
+        }
+
+        return cost;        
+    }
+}
+
+What requirements or other factors might change that will impact this design?
+
+    Price changes for condiments will force us to alter existing code.
+    New condiments will force us to add new methods and alter the cost method in the superclass.
+    We may have new beverages. For some of these beverages (iced tea?), the condiments may not be appropriate, yet the Tea subclass will still inherit methods like hasWhip().
+    What if a customer wants a double mocha?
+    we don't see the particular price of the single beverage
+    what if a customer combines two bevarages in one (espresso + decaf)?
+    what if a customer wants a different proportion of the bevarage(?)
+    Similars beverage (like espresso and dark) could have the same cost associated, so, the cost method bust be implemented twice
+
+Brain Power
+
+Before going further, think about how you’d implement the cost() method of the coffees and the condiments. Also think about how you’d implement the getDescription() method of the condiments.
+    COST
+    coffes:
+        Cost(){
+            return cost;
+        }
+    condiments:
+        Cost(){
+            if(beverage != null){
+                cost += beverage.Cost();
+            }
+            return cost;
+        }
+    DESCRIPTION
+    condiments:
+        getDescription() {
+            String description = null;
+            if(beverage != null) {
+                description = " with milk";
+            }
+            return description;
+        }
+
+New barista training
+
+Make a picture for what happens when the order is for a "double mocha soy latte with whip" beverage. Use the menu to get the correct prices, and draw your picture using the same format we used earlier (from a few pages back):
+
+HINT: you can make a "double mocha soy latte with whip" by combining HouseBlend, Soy, two shots of Mocha and Whip!
+
+(Whip Cost():0.10 (Mocha Cost():0.20 (Mocha Cost():0.20 (Soy  Cost():0.15 (HouseBlend Cost():0.89)))))
+Total cost: 65+89: 1.54
