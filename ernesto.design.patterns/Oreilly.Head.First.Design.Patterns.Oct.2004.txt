@@ -206,3 +206,19 @@ HINT: you can make a "double mocha soy latte with whip" by combining HouseBlend,
 
 (Whip Cost():0.10 (Mocha Cost():0.20 (Mocha Cost():0.20 (Soy  Cost():0.15 (HouseBlend Cost():0.89)))))
 Total cost: 65+89: 1.54
+
+/*
+***********
+* Unit 4: *
+***********
+*/
+
+Brain Power
+
+How might you take all the parts of your application that instantiate concrete classes and separate or encapsulate them from the rest of your application?
+    returning an object to an instance variable of an interface, deppending on the parameters that are send
+
+Brain Power
+
+We know that object composition allows us to change behavior dynamically at runtime (among other things) because we can swap in and out. How might we be able to use that in the PizzaStore? What factory implementations might we be able to swap in and out?
+    ==

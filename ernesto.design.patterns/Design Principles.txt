@@ -24,3 +24,21 @@ Classes should be open for extension, but closed for modification.
 Observable API Issues
 
 Observable may serve your needs if you can extend java.util.Observable. On the other hand, you may need to roll your own implementation as we did at the beginning of the chapter. In either case, you know the Observer Pattern well and you’re in a good position to work with any API that makes use of the pattern.
+
+Program to an Interface
+
+*Just another reminder: in design patterns, the phrase "implement an interface" does NOT always mean "write a class the implements a Java interface, by using the "implements" keyword in the class declaration." In the general use of the phrase, a concrete class implementing a method from a supertype (which could be a class OR interface) is still considered to be "implementing the interface" of that supertype.
+
+Factory Method
+
+A factory method handles object creation and encapsulates it in a subclass. This decouples the client code in the superclass from the object creation code in the subclass.
+
+abstract Product factoryMethod(String type);
+
+    A factory method is abstract so the subclasses are counted on to handle object creation.
+
+    A factory method returns a Product that is typically used within methods defined in the superclass.
+
+    A factory method isolates the client (the code in the superclass, like orderPizza()) from knowing what kind of concrete Product is actually created.
+
+    A factory method may be parameterized (or not) to select among several variations of a product.
