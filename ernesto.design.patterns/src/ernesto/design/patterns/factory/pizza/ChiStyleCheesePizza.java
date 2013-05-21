@@ -1,4 +1,4 @@
-package ernesto.design.patterns.factory;
+package ernesto.design.patterns.factory.pizza;
 
 public class ChiStyleCheesePizza extends Pizza {
 	

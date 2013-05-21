@@ -13,13 +13,27 @@ Strive for loosely coupled designs between objects that interact.
 Design Principle
 Classes should be open for extension, but closed for modification.
 
+Design Principle (Dependency Inversion)
+Depend upon abstractions. Do not depend upon concrete classes.
+
+Guidelines
+
+* No variable should hold a reference to a concrete class.
+* No class should derive from a concrete class.
+* No method should override an implemented method of any of its base classes.
+
 -- The HAS-A relationship is an interesting one: each duck has a FlyBehavior and a QuackBehavior to which it delegates flying and quacking.
 
-* The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+* The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it. [Classes involved: Classes that distribute behaviors of objs]
 
-* The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. There are many observers and they rely on the Subject to tell them when its state changes.
+* The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. There are many observers and they rely on the Subject to tell them when its state changes. [Classes involved: Observable (emitter) & observers (listeners)]
 
-* The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. You can wrap a component with any number of decorators.
+* The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. You can wrap a component with any number of decorators. [Classes involved: Decorable (subclass from a product) & decorators (subclass of the same product, but wrap the Decorable)]
+
+* The Factory Method Pattern defi nes an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses. [Classes involved: Creator Class (subclass of interface factory that create a prod.) & product classes (that gets from a creator class)]
+
+* The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
+An Abstract Factory gives us an interface for creating a family of products. By writing code that uses this interface, we decouple our code from the actual factory that creates the products. That allows us to implement a variety of factories that produce products meant for different contexts – such as different regions, operating systems, or different look and feels.
 
 Observable API Issues
 
@@ -36,9 +50,6 @@ A factory method handles object creation and encapsulates it in a subclass. This
 abstract Product factoryMethod(String type);
 
     A factory method is abstract so the subclasses are counted on to handle object creation.
-
     A factory method returns a Product that is typically used within methods defined in the superclass.
-
     A factory method isolates the client (the code in the superclass, like orderPizza()) from knowing what kind of concrete Product is actually created.
-
     A factory method may be parameterized (or not) to select among several variations of a product.

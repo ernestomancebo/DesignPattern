@@ -1,5 +1,9 @@
 package ernesto.design.patterns.factory;
 
+import ernesto.design.patterns.factory.pizza.ChiStyleCheesePizza;
+import ernesto.design.patterns.factory.pizza.ChiStylePepperoniPizza;
+import ernesto.design.patterns.factory.pizza.Pizza;
+
 public class ChiPizzaStore extends PizzaStore {
 
 	@Override

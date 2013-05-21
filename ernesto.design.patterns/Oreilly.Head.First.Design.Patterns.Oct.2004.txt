@@ -222,3 +222,20 @@ Brain Power
 
 We know that object composition allows us to change behavior dynamically at runtime (among other things) because we can swap in and out. How might we be able to use that in the PizzaStore? What factory implementations might we be able to swap in and out?
     ==
+
+Design Puzzle
+
+    CaliStylePizza { createPizza() }
+        CaliStylecheesePizza
+        CaliStylePepperoniPizza
+
+    Toppings:
+        Pepperoni
+        Onion
+        mushroom
+
+Sharpen you pencil
+
+    Let’s pretend you’ve never heard of an OO factory. Here’s a version of the PizzaStore that doesn’t use a factory; make a count of the number of concrete pizza objects this class is dependent on. If you added California style pizzas to this PizzaStore, how many objects would it be dependent on then?
+
+    dependent objects: 8; added California: 4
