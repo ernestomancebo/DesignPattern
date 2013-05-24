@@ -1,4 +1,4 @@
-package ernesto.design.pattern.command;
+package ernesto.design.patterns.command;
 
 public class SimpleRemoteControl {
 
