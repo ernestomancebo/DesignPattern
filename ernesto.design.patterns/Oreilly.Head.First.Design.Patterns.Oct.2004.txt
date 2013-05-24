@@ -239,3 +239,88 @@ Sharpen you pencil
     Let’s pretend you’ve never heard of an OO factory. Here’s a version of the PizzaStore that doesn’t use a factory; make a count of the number of concrete pizza objects this class is dependent on. If you added California style pizzas to this PizzaStore, how many objects would it be dependent on then?
 
     dependent objects: 8; added California: 4
+
+/*
+***********
+* Unit 5: *
+***********
+*/
+
+Brain Power
+
+Choc-O-Holic has done a decent job of ensuring bad things don’t happen, don’t ya think? Then again, you probably suspect that if two ChocolateBoiler instances get loose, some very bad things can happen. How might things go wrong if more than one instance of ChocolateBoiler is created in an application?
+
+    Could be a parallel Choc-O-Holic factory filling parallel ChocolateBoilers and so on.
+
+Sharpen your pencil
+
+    public class ChocolateBoiler {
+        private boolean empty;
+        private boolean boiled;
+
+        public static ChocolateBoiler uniqueInstance;
+
+        private ChocolateBoiler() {
+            empty  = true;
+            boiled = false;
+        }
+
+        public ChocolateBoiler getInstance() {
+            if(uniqueInstance == null) {
+                uniqueInstance = new ChocolateBoiler();
+            }
+            return uniqueInstance;
+        }
+
+        public void fill() {
+            if (isEmpty()) {
+                empty  = false;
+                boiled = false;
+                // fill the boiler with a milk/chocolate mixture
+            }
+        }
+        // rest of ChocolateBoiler code...
+    }
+
+BE the JVM
+
+    Thread 1        
+    Thread 2
+    Both will got the same output, because the instance variables aren't statics
+
+    uniqueInstance value:
+        ChocolateBoiler instance.
+
+Sharpen your pencil
+
+    Synchronize the getInstance() method:
+
+        A straightforward technique that is guaranteed to work. Consumption issue
+
+    Use eager instantiation:
+
+        We are always going to instantiate the chocolate boiler in our code, so statically inializing the instance would cause no concerns.
+
+    double-checked locking
+
+        Given we have no performance concerns, double-checked locking seems like overkill.
+
+/*
+***********
+* Unit 6: *
+***********
+*/
+
+Who does what?
+
+    Waitress: Invoker
+    Short Order Cook: Receiver
+    orderUp(): execute()
+    Order: Command
+    Customer: Client
+    takeOrder(): setCommand()
+
+Brain Power
+
+How do es the design of the Command Pattern support the decoupling of the invoker of a request and the receiver of the request?
+    They are decoupuled by that a invoker just get a command type object from a client and execute it.

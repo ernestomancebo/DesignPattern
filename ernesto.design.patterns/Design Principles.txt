@@ -30,10 +30,15 @@ Guidelines
 
 * The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. You can wrap a component with any number of decorators. [Classes involved: Decorable (subclass from a product) & decorators (subclass of the same product, but wrap the Decorable)]
 
-* The Factory Method Pattern defi nes an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses. [Classes involved: Creator Class (subclass of interface factory that create a prod.) & product classes (that gets from a creator class)]
+* The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses. Factory Method relies on inheritance: object creation is delegated to subclasses which implement the factory method to create objects. [Classes involved: Creator Class (subclass of interface factory that create a prod.) & product classes (that gets from a creator class)]
 
-* The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
+* The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. Abstract Factory relies on object composition: object creation is implemented in methods exposed in the factory interface.
+
 An Abstract Factory gives us an interface for creating a family of products. By writing code that uses this interface, we decouple our code from the actual factory that creates the products. That allows us to implement a variety of factories that produce products meant for different contexts – such as different regions, operating systems, or different look and feels.
+
+* The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it.
+
+* The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log, and support undoable operations.
 
 Observable API Issues
 
